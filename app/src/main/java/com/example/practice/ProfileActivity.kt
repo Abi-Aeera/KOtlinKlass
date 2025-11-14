@@ -13,11 +13,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -26,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -39,86 +40,182 @@ class ProfileActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProfilePage()
+            ProfileBody()
         }
     }
 }
 
 @Composable
-fun ProfilePage() {
+fun ProfileBody() {
     Scaffold {
         padding ->
         Column(
-            modifier = Modifier.fillMaxSize().padding(paddingValues = padding).background(color = Color.White).fillMaxWidth()
+            modifier = Modifier.fillMaxSize()
+                .background(color = Color.White)
+                .padding(padding)
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp)
             ) {
                 Icon(
                     painter = painterResource(R.drawable.baseline_arrow_back_ios_24),
                     contentDescription = null
                 )
-
+                Text("Instagram", style = TextStyle(fontWeight = FontWeight.ExtraBold), fontSize = 20.sp)
                 Icon(
                     painter = painterResource(R.drawable.baseline_more_vert_24),
                     contentDescription = null
                 )
             }
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth().padding(16.dp)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.img),
+                    contentDescription = null,
+                    modifier = Modifier.height(100.dp).width(100.dp).clip(CircleShape),
+                    contentScale = ContentScale.Crop
+                )
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("1K", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                    Text("Posts", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("3M", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                    Text("Followers", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("275", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                    Text("Following", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+                }
+            }
+            Column(
+                modifier = Modifier.padding(top = 15.dp, start = 20.dp)
+            ) {
+                Text(
+                    "Username", style = TextStyle(fontWeight = FontWeight.ExtraBold, fontSize = 15.sp),
+                )
+                Text("Love and Peace things I never got.\nError 404 : Bio not found\nNot a secret, just not your business.\nShe lives the poetry she cannot write ", style = TextStyle(fontWeight = FontWeight.SemiBold))
 
-            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Button(
+                    onClick = { },
+                    shape = RoundedCornerShape(5.dp),
+                    modifier = Modifier.weight(1f)
                 ) {
+                    Text("Follow")
+                }
+                Button(
+                    onClick = { },
+                    shape = RoundedCornerShape(5.dp),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Message")
+                }
+                Button(
+                    onClick = { },
+                    shape = RoundedCornerShape(5.dp),
+                    modifier = Modifier.weight(0.5f)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_launcher_foreground),
+                        contentDescription = null
+                    )
+                }
+            }
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth().padding(top = 15.dp)
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally)
+                {
                     Image(
                         painter = painterResource(R.drawable.img),
                         contentDescription = null,
-                        modifier = Modifier.size(100.dp).clip(CircleShape)
+                        modifier = Modifier.height(65.dp).width(65.dp).clip(CircleShape),
+                        contentScale = ContentScale.Crop
                     )
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(text = "0", style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp))
-                        Text(text = "Posts")
-                    }
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(text = "26", style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp))
-                        Text(text = "Followers")
-                    }
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(text = "27", style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp))
-                        Text(text = "Following")
+                    Text("Cat1", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(
+                        painter = painterResource(R.drawable.img),
+                        contentDescription = null,
+                        modifier = Modifier.height(65.dp).width(65.dp).clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                    Text("Cat2", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(
+                        painter = painterResource(R.drawable.img),
+                        contentDescription = null,
+                        modifier = Modifier.height(65.dp).width(65.dp).clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                    Text("Cat3", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(
+                        painter = painterResource(R.drawable.img),
+                        contentDescription = null,
+                        modifier = Modifier.height(65.dp).width(65.dp).clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                    Text("Cat4", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(
+                        painter = painterResource(R.drawable.img),
+                        contentDescription = null,
+                        modifier = Modifier.height(65.dp).width(65.dp).clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                    Text("Cat5", style = TextStyle(fontWeight = FontWeight.ExtraBold))
+
+                }
+            }
+            Row {
+                Column {
+                    Card(
+                        modifier = Modifier
+                            .height(height = 200.dp)
+                            .width(width = 300.dp),
+                        shape = RoundedCornerShape(5.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        elevation = CardDefaults.cardElevation(10.dp)
+                    ) {
+                        Text(text = "Card Content")
                     }
                 }
-
-                Text(
-                    text = "Abi_is_Lost",
-                    style = TextStyle(fontWeight = FontWeight.Bold),
-                    modifier = Modifier.padding(top = 9.dp)
-                )
-                Button(
-                    onClick = { /* Do nothing for now */ },
-                    modifier = Modifier.padding(top = 8.dp).width(width = 135.dp).height(height = 35.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(id = R.color.grey)
-                    )
-                ) {
-                    Text("@ abi_is_lost", color = colorResource(id = R.color.white))
-                }
-                Text(
-                    text = "mi amore....",
-                    style = TextStyle(fontWeight = FontWeight.Normal), modifier = Modifier.padding(top = 0.dp)
-
-                )
 
             }
+
         }
+
     }
+
 }
 
 @Preview
 @Composable
-fun GreetingPreview2() {
-    ProfilePage()
+fun ProfileBodyPreview() {
+    ProfileBody()
+
+
 }

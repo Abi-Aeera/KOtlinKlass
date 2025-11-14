@@ -13,4 +13,10 @@
     <color name="grey">#494B49</color>
     <color name="ashy_gray">#B2BABB</color>
     <color name="charcoal_black">#36454F</color>
+    <color name="light_green">#A5D6A7</color>
+    <color name="card_orange">#FBC02D</color>
+    <color name="card_blue">#42A5F5</color>
+    <color name="card_green">#66BB6A</color>
+    <color name="card_purple">#7E57C2</color>
+    <color name="card_brown">#A1887F</color>
 </resources>

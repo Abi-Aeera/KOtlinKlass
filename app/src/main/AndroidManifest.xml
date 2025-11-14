@@ -12,18 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRactice">
         <activity
+            android:name=".CardActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_card2"
+            android:theme="@style/Theme.PRactice" />
+        <activity
+            android:name=".CARds"
+            android:exported="true"
+            android:label="@string/title_activity_cards"
+            android:theme="@style/Theme.PRactice">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ProfileActivity"
             android:exported="true"
             android:label="@string/title_activity_profile"
-            android:theme="@style/Theme.PRactice"
-            >
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/Theme.PRactice">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
