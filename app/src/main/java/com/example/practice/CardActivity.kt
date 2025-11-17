@@ -147,7 +147,7 @@ fun SettingsCard() {
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CardPreview() {
     CardBody()

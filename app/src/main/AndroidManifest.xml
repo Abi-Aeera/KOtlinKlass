@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRactice">
         <activity
+            android:name=".RegistrationActivity"
+            android:exported="true"
+            android:label="@string/title_activity_registration"
+            android:theme="@style/Theme.PRactice"
+        >
+            <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    </activity>
+        <activity
             android:name=".CardActivity2"
             android:exported="false"
             android:label="@string/title_activity_card2"
